@@ -2,13 +2,18 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using DatingApp.API.Data;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 
 namespace DatingApp.API.Controllers
 {
+    //     [ApiVersion("1")]
+    //     [ApiVersion("2")]
+
     [ApiController]
-    [Route("[controller]")]
+    [Route("api/[controller]")]
+    // [Route("api/v{version:apiVersion}/[controller]")]
     public class WeatherForecastController : ControllerBase
     {
         private static readonly string[] Summaries = new[]
@@ -17,12 +22,15 @@ namespace DatingApp.API.Controllers
         };
 
         private readonly ILogger<WeatherForecastController> _logger;
+        private readonly DataContext context;
 
-        public WeatherForecastController(ILogger<WeatherForecastController> logger)
+        public WeatherForecastController(ILogger<WeatherForecastController> logger, DataContext context)
         {
+            this.context = context;
             _logger = logger;
         }
 
+        [MapToApiVersion("1")]
         [HttpGet]
         public IEnumerable<WeatherForecast> Get()
         {
@@ -35,5 +43,9 @@ namespace DatingApp.API.Controllers
             })
             .ToArray();
         }
+
+
+
+
     }
 }
