@@ -1,12 +1,14 @@
 using System.Linq;
 using System.Threading.Tasks;
 using DatingApp.API.Data;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 
 namespace DatingApp.API.Controllers
 {
 
+    [Authorize]
     //[ApiVersion("1")]
     [ApiController]
     [Route("api/[controller]")]
@@ -27,6 +29,8 @@ namespace DatingApp.API.Controllers
 
             return Ok(values);
         }
+
+        [AllowAnonymous]
 
         [HttpGet("GetValues")]
         //   [MapToApiVersion("1")]
