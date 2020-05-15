@@ -9,9 +9,16 @@ import { NavComponent } from './nav/nav.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HomeComponent } from './home/home.component';
 import { RegisterComponent } from './register/register.component';
+import { ErrorInterceptorProvider } from './services/error.interceptor';
 
 @NgModule({
-  declarations: [AppComponent, ValueComponent, NavComponent, HomeComponent, RegisterComponent],
+  declarations: [
+    AppComponent,
+    ValueComponent,
+    NavComponent,
+    HomeComponent,
+    RegisterComponent,
+  ],
   imports: [
     BrowserModule,
     AppRoutingModule,
@@ -20,7 +27,7 @@ import { RegisterComponent } from './register/register.component';
     ReactiveFormsModule,
   ],
 
-  providers: [],
+  providers: [ErrorInterceptorProvider],
   bootstrap: [AppComponent],
 })
 export class AppModule {}
