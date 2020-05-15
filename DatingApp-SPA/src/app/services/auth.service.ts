@@ -20,4 +20,8 @@ export class AuthService {
       })
     );
   }
+
+  register(model: any) {
+    return this.http.post(this.url + 'Auth/Register', model);
+  }
 }
