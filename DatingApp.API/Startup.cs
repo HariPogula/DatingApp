@@ -38,7 +38,11 @@ namespace DatingApp.API
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddControllers();
+            services.AddControllers().AddNewtonsoftJson(opt =>
+            {
+                opt.SerializerSettings.ReferenceLoopHandling =
+                 Newtonsoft.Json.ReferenceLoopHandling.Ignore;
+            });
 
             // Adding Swagger -- Need to Install dotnet add package Swashbuckle.AspNetCore --version 5.4.1
             services.AddSwaggerGen(c =>
@@ -63,6 +67,7 @@ namespace DatingApp.API
             services.AddCors();
 
             services.AddScoped<IAuthRepository, AuthRepository>();
+            services.AddScoped<IDatingRepository, DatingRepository>();
 
             services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
             .AddJwtBearer(options =>
