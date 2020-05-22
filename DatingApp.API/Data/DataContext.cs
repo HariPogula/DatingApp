@@ -13,5 +13,7 @@ namespace DatingApp.API.Data
         public DbSet<Test> Test { get; set; }
         public DbSet<Sample> Sample { get; set; }
         public DbSet<User> User { get; set; }
+        public DbSet<Photo> Photos { get; set; }
+
     }
 }

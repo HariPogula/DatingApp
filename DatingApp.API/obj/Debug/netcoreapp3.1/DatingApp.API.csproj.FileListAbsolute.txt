@@ -87,3 +87,4 @@ C:\Users\Om\Desktop\.NET\DatingApp\DatingApp.API\bin\Debug\netcoreapp3.1\Microso
 C:\Users\Om\Desktop\.NET\DatingApp\DatingApp.API\bin\Debug\netcoreapp3.1\Microsoft.IdentityModel.Tokens.dll
 C:\Users\Om\Desktop\.NET\DatingApp\DatingApp.API\bin\Debug\netcoreapp3.1\Newtonsoft.Json.dll
 C:\Users\Om\Desktop\.NET\DatingApp\DatingApp.API\bin\Debug\netcoreapp3.1\System.IdentityModel.Tokens.Jwt.dll
+C:\Users\Om\Desktop\.NET\DatingApp\DatingApp.API\bin\Debug\netcoreapp3.1\Data\UserSeedData.json
