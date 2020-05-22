@@ -2,7 +2,7 @@ import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { ListsComponent } from './lists/lists.component';
 import { HomeComponent } from './home/home.component';
-import { MemberlistComponent } from './memberlist/memberlist.component';
+import { MemberlistComponent } from './members/memberlist/memberlist.component';
 import { MessagesComponent } from './messages/messages.component';
 import { AuthGuard } from './guards/auth.guard';
 import { AuthService } from './services/auth.service';
