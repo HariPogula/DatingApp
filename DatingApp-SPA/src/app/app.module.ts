@@ -19,6 +19,7 @@ import { MemberCardComponent } from './members/member-card/member-card.component
 import { JwtModule } from '@auth0/angular-jwt';
 import { MemberDetailComponent } from './members/member-detail/member-detail.component';
 import { MemberDetailResolver } from './resolvers/member-detail.resolver';
+import { NgxGalleryModule } from 'ngx-gallery-9';
 
 export function getToken() {
   return localStorage.getItem('token');
@@ -44,6 +45,7 @@ export function getToken() {
     ReactiveFormsModule,
     BrowserAnimationsModule,
     NgbModule,
+    NgxGalleryModule,
     JwtModule.forRoot({
       config: {
         tokenGetter: getToken,
