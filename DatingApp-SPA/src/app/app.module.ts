@@ -17,6 +17,8 @@ import { ListsComponent } from './lists/lists.component';
 import { MessagesComponent } from './messages/messages.component';
 import { MemberCardComponent } from './members/member-card/member-card.component';
 import { JwtModule } from '@auth0/angular-jwt';
+import { MemberDetailComponent } from './members/member-detail/member-detail.component';
+import { MemberDetailResolver } from './resolvers/member-detail.resolver';
 
 export function getToken() {
   return localStorage.getItem('token');
@@ -32,6 +34,7 @@ export function getToken() {
     ListsComponent,
     MessagesComponent,
     MemberCardComponent,
+    MemberDetailComponent,
   ],
   imports: [
     BrowserModule,
@@ -50,7 +53,7 @@ export function getToken() {
     }),
   ],
 
-  providers: [ErrorInterceptorProvider],
+  providers: [ErrorInterceptorProvider, MemberDetailResolver],
   bootstrap: [AppComponent],
 })
 export class AppModule {}
