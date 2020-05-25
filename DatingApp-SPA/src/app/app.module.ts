@@ -12,10 +12,18 @@ import { RegisterComponent } from './register/register.component';
 import { ErrorInterceptorProvider } from './services/error.interceptor';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
-import { MemberlistComponent } from './memberlist/memberlist.component';
+import { MemberlistComponent } from './members/memberlist/memberlist.component';
 import { ListsComponent } from './lists/lists.component';
 import { MessagesComponent } from './messages/messages.component';
+import { MemberCardComponent } from './members/member-card/member-card.component';
+import { JwtModule } from '@auth0/angular-jwt';
+import { MemberDetailComponent } from './members/member-detail/member-detail.component';
+import { MemberDetailResolver } from './resolvers/member-detail.resolver';
+import { NgxGalleryModule } from 'ngx-gallery-9';
 
+export function getToken() {
+  return localStorage.getItem('token');
+}
 @NgModule({
   declarations: [
     AppComponent,
@@ -26,6 +34,8 @@ import { MessagesComponent } from './messages/messages.component';
     MemberlistComponent,
     ListsComponent,
     MessagesComponent,
+    MemberCardComponent,
+    MemberDetailComponent,
   ],
   imports: [
     BrowserModule,
@@ -35,9 +45,17 @@ import { MessagesComponent } from './messages/messages.component';
     ReactiveFormsModule,
     BrowserAnimationsModule,
     NgbModule,
+    NgxGalleryModule,
+    JwtModule.forRoot({
+      config: {
+        tokenGetter: getToken,
+        whitelistedDomains: ['localhost:5000'],
+        blacklistedRoutes: ['localhost:5000/api/auth'],
+      },
+    }),
   ],
 
-  providers: [ErrorInterceptorProvider],
+  providers: [ErrorInterceptorProvider, MemberDetailResolver],
   bootstrap: [AppComponent],
 })
 export class AppModule {}
